@@ -59,26 +59,3 @@ The application uses the following tables in its database:
 
 12. **User_Role Table**
     - Links users to their roles for permissions management.
-
-## Installation
-
-To install the application, clone the repository and run the following commands:
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/payroll-application.git
-
-# Change to the project directory
-cd payroll-application
-
-# Install dependencies (if applicable)
-npm install
-```
-
-## Usage
-Run the application locally by executing:
-
-```bash
-# Start the application
-npm start
-```
