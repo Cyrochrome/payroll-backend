@@ -1,5 +1,6 @@
 import { DataType, DataTypes, Model } from "sequelize";
 import sequelize from "../../config/database";
+import Employee from "../EmployeeModel";
 
 class Attendance extends Model {
   public attendance_id!: string;
@@ -36,9 +37,12 @@ Attendance.init(
     },
     employee_id: {
       type: DataTypes.STRING(40),
-      references:{
-
-      }
+      references: {
+        model: Employee,
+        key: "employee_id",
+      },
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
     },
   },
   {
@@ -48,4 +52,4 @@ Attendance.init(
   }
 );
 
-export default Attendance
+export default Attendance;
