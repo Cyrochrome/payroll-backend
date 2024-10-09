@@ -73,11 +73,12 @@ cd payroll-application
 
 # Install dependencies (if applicable)
 npm install
+```
 
 ## Usage
-
 Run the application locally by executing:
 
 ```bash
 # Start the application
 npm start
+```
