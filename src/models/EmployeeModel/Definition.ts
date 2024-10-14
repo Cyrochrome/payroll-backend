@@ -36,7 +36,10 @@ Employee.init(
     },
     position_id: {
       type: DataTypes.STRING(40),
-      references: {},
+      references: {
+        model: Employee,
+        key: "position_id",
+      },
       onUpdate: "NO ACTION",
       onDelete: "NO ACTION",
     },

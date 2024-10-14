@@ -10,6 +10,7 @@ const sequelize = new Sequelize({
     freezeTableName: true,
     underscored: true,
     timestamps: false,
+    
   },
 });
 
