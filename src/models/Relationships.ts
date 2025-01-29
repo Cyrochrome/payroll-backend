@@ -4,6 +4,12 @@ import Employee from "./EmployeeModel";
 import Attendance from "./AttendanceModel";
 import Position from "./PositionModel/Denition";
 import Profile from "./ProfileModel";
+import Role from "./RoleModel";
+import Rule from "./RuleModel";
+import RoleRule from "./RoleRuleModel";
+import UserRole from "./UserRoleModel";
+import Salary from "./SalaryModel";
+import Tracking from "./TrackingModel";
 
 User.hasOne(Key, {
   foreignKey: "user_id",
@@ -32,6 +38,15 @@ Attendance.belongsTo(Employee, {
   as: "employee",
 });
 
+Employee.hasMany(Tracking, {
+  foreignKey: "employee_id",
+  as: "tracking",
+});
+Tracking.belongsTo(Employee, {
+  foreignKey: "employee_id",
+  as: "employee",
+});
+
 Position.hasMany(Employee, {
   foreignKey: "position_id",
   as: "employee",
@@ -49,3 +64,18 @@ Profile.belongsTo(User, {
   foreignKey: "user_id",
   as: "user",
 });
+
+Employee.hasMany(Salary, {
+  foreignKey: "empleyee_id",
+  as: "salary",
+});
+Salary.belongsTo(Employee, {
+  foreignKey: "empleyee_id",
+  as: "employee",
+});
+
+Role.belongsToMany(Rule, { through: RoleRule, foreignKey: "role_id" });
+Rule.belongsToMany(Role, { through: RoleRule, foreignKey: "rule_id" });
+
+User.belongsToMany(Role, { through: UserRole, foreignKey: "user_id" });
+Role.belongsToMany(User, { through: UserRole, foreignKey: "role_id" });

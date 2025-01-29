@@ -6,9 +6,11 @@ class Employee extends Model {
   public employee_id!: string;
   public hired_date!: Date;
   public status!: number;
+
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
-  public readonly deleted_at!: Date;
+  public readonly deleted_at!: Date | null;
+
   public user_id!: string;
   public position_id!: string;
 }

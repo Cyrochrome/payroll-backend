@@ -4,12 +4,13 @@ import sequelize from "../../config/database";
 class Position extends Model {
   public position_id!: string;
   public position_name!: string;
+  public currency!: string;
   public min_salary!: number;
   public max_salary!: number;
 
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
-  public readonly deleted_at!: Date;
+  public readonly deleted_at!: Date | null;
 }
 
 Position.init(
@@ -20,6 +21,9 @@ Position.init(
     },
     position_name: {
       type: DataTypes.STRING(100),
+    },
+    currency: {
+      type: DataTypes.STRING(3),
     },
     min_salary: {
       type: DataTypes.DECIMAL(32, 2),
@@ -36,4 +40,4 @@ Position.init(
   }
 );
 
-export default Position
+export default Position;

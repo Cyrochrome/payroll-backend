@@ -1,40 +1,36 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../../config/database";
 
-class User extends Model {
-  public user_id!: string;
-  public user_access!: string;
-  public user_password!: string;
-  public status!: number;
+class Role extends Model {
+  public role_id!: string;
+  public role_name!: string;
+  public description!: string;
 
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
   public readonly deleted_at!: Date | null;
 }
 
-User.init(
+Role.init(
   {
-    user_id: {
+    role_id: {
       type: DataTypes.STRING(40),
       primaryKey: true,
     },
-    user_access: {
-      type: DataTypes.STRING(50),
+    role_name: {
+      type: DataTypes.STRING(100),
       unique: true,
     },
-    user_password: {
+    description: {
       type: DataTypes.TEXT,
-    },
-    status: {
-      type: DataTypes.TINYINT({ length: 1 }),
     },
   },
   {
     sequelize,
-    tableName: "user",
+    tableName: "role",
     timestamps: true,
     paranoid: true,
   }
 );
 
-export default User;
+export default Role;
